@@ -3,37 +3,41 @@
 
 <head>
 <title>Probosciss News</title>
-
 <style>
 
+/* === Retro MySpace / Early 2000s Aesthetic === */
+
 body{
-font-family: Arial, Helvetica, sans-serif;
+font-family:'Verdana', 'Arial', sans-serif;
 margin:0;
-background:#ffffff;
+background: linear-gradient(to bottom,#f2f2f2,#e0e0ff);
 color:#222;
 }
 
 header{
-background:#ffffff;
-border-bottom:1px solid #ddd;
-padding:20px 40px;
+background:#003366;
+color:white;
+padding:25px 40px;
+text-shadow:1px 1px 2px #000;
 }
 
 header h1{
 margin:0;
-font-size:32px;
+font-size:36px;
+letter-spacing:2px;
 }
 
 nav{
-margin-top:10px;
+margin-top:15px;
 }
 
 nav a{
 text-decoration:none;
-margin-right:20px;
-color:#333;
-font-weight:500;
+margin-right:25px;
+color:#ffcc00;
+font-weight:bold;
 font-size:14px;
+text-shadow: 1px 1px 0 #000;
 }
 
 main{
@@ -44,27 +48,35 @@ padding:30px;
 
 .searchbar{
 margin-bottom:30px;
+text-align:center;
 }
 
 .searchbar input{
-padding:10px;
-width:300px;
+padding:12px;
+width:320px;
 font-size:14px;
-border:1px solid #ccc;
+border:2px solid #003366;
+border-radius:5px;
+background:#ffffe0;
 }
 
 .headline{
-margin-bottom:40px;
+margin-bottom:50px;
+background:#cce6ff;
+padding:20px;
+border:2px solid #003366;
+box-shadow:3px 3px 5px rgba(0,0,0,0.3);
 }
 
 .headline h2{
-font-size:32px;
-margin-bottom:10px;
+font-size:34px;
+margin-bottom:12px;
+color:#003366;
 }
 
 .headline p{
 font-size:16px;
-color:#444;
+color:#111;
 }
 
 .grid{
@@ -74,38 +86,74 @@ gap:25px;
 }
 
 .card{
-border-top:3px solid #eee;
-padding-top:10px;
+background:#ffffcc;
+border-top:3px solid #003366;
+padding:15px;
+box-shadow:2px 2px 5px rgba(0,0,0,0.2);
+transition: transform 0.2s;
+}
+
+.card:hover{
+transform:scale(1.02);
 }
 
 .card h3{
 margin:0 0 10px 0;
 font-size:18px;
+color:#003366;
 }
 
 .card p{
 font-size:14px;
-color:#555;
+color:#111;
 }
 
 footer{
-border-top:1px solid #ddd;
+border-top:2px solid #003366;
 margin-top:40px;
 padding:20px;
-color:#777;
+color:#333;
 font-size:13px;
+background:#cce6ff;
+text-align:center;
+}
+
+/* Breaking News Ticker */
+
+.ticker{
+background:#ff0000;
+color:white;
+padding:10px;
+font-weight:bold;
+overflow:hidden;
+white-space:nowrap;
+box-sizing:border-box;
+}
+
+.ticker span{
+display:inline-block;
+padding-left:100%;
+animation: tickerScroll 20s linear infinite;
+}
+
+@keyframes tickerScroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+/* Hidden messages for ARG */
+
+.hidden{
+display:none;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-
 <h1>Probosciss News</h1>
-
 <nav>
 <a href="#">Local</a>
 <a href="#">Environment</a>
@@ -113,8 +161,12 @@ font-size:13px;
 <a href="#">Community</a>
 <a href="archive.html">Archives</a>
 </nav>
-
 </header>
+
+<!-- Breaking News Ticker -->
+<div class="ticker">
+<span>BREAKING: Forest climbing areas temporarily closed | Community meet-up this weekend | Digital archives now online</span>
+</div>
 
 <main>
 
@@ -123,47 +175,29 @@ font-size:13px;
 </div>
 
 <section class="headline">
-
 <h2 id="mainHeadline">City Expands Recreational Climbing Areas</h2>
-
-<p id="mainText">
-Local officials announced plans to expand climbing zones in the northern forest following increased community interest.
-</p>
-
+<p id="mainText">Local officials announced plans to expand climbing zones in the northern forest following increased community interest.</p>
 <a href="#">Read Full Story</a>
-
 </section>
 
 <section class="grid" id="articles-grid">
 
 <div class="card">
-
 <h3>Community Climber Meet-up Scheduled</h3>
-
-<p>Local climbing enthusiasts plan a weekend gathering.</p>
-
+<p>Local climbing enthusiasts plan a weekend gathering to share tips and experiences.</p>
 <a href="#">Read</a>
-
 </div>
 
 <div class="card">
-
 <h3>Forest Trail Maintenance Begins</h3>
-
-<p>Maintenance crews repair climbing structures along the main trail.</p>
-
+<p>Maintenance crews repair climbing structures and trails along the main path.</p>
 <a href="#">Read</a>
-
 </div>
 
 <div class="card">
-
 <h3>Digital Archive Now Available</h3>
-
-<p>Probosciss News has begun digitizing historical records.</p>
-
+<p>Probosciss News has begun digitizing historical records for public access.</p>
 <a href="archive.html">Browse</a>
-
 </div>
 
 </section>
@@ -171,57 +205,46 @@ Local officials announced plans to expand climbing zones in the northern forest 
 </main>
 
 <footer>
-
-<p>© 2026 Probosciss News</p>
-<p>About | Contact | Privacy</p>
-
+<p>© 2026 Probosciss News | About | Contact | Privacy</p>
 </footer>
 
+<p class="hidden">SUBJECT IS OBSERVING</p>
+
 <script>
-
-/* SEARCH SYSTEM */
-
 function searchArticles(){
-
-var input=document.getElementById("search").value.toLowerCase();
-
-var cards=document.getElementById("articles-grid").getElementsByClassName("card");
-
-for(var i=0;i<cards.length;i++){
-
-var title=cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
-
-if(title.includes(input)){
-
-cards[i].style.display="block";
-
-}else{
-
-cards[i].style.display="none";
-
+  var input = document.getElementById("search").value.toLowerCase();
+  var cards = document.getElementById("articles-grid").getElementsByClassName("card");
+  for(var i=0;i<cards.length;i++){
+    var title = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+    if(title.includes(input)){
+      cards[i].style.display="block";
+    } else {
+      cards[i].style.display="none";
+    }
+  }
 }
-
-}
-
-}
-
 
 setTimeout(function(){
-
-var headline=document.getElementById("mainHeadline");
-
-var text=document.getElementById("mainText");
-
-headline.innerText="City Officials Close Forest Climbing Area";
-
-text.innerText="Authorities temporarily restricted access to several climbing zones following reports of unusual disturbances.";
-
+  var headline = document.getElementById("mainHeadline");
+  var text = document.getElementById("mainText");
+  headline.innerText = "Forest Trails Closed After Unexplained Incident";
+  text.innerText = "Authorities temporarily restricted access to several climbing zones following reports of unusual disturbances.";
 },60000);
+
+setTimeout(function(){
+  var hiddenMsg = document.createElement('p');
+  hiddenMsg.innerText = "They are watching...";
+  hiddenMsg.classList.add('hidden');
+  document.body.appendChild(hiddenMsg);
+},30000);
+
+if(localStorage.getItem('visited')==='true'){
+  document.body.style.background = '#e0e0cc';
+} else {
+  localStorage.setItem('visited','true');
+}
 
 </script>
 
-<!-- archive system pending -->
-
 </body>
-
 </html>
