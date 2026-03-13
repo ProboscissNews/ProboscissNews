@@ -3,7 +3,101 @@
 
 <head>
 <title>Probosciss News</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+margin:0;
+background:#ffffff;
+color:#222;
+}
+
+header{
+background:#ffffff;
+border-bottom:1px solid #ddd;
+padding:20px 40px;
+}
+
+header h1{
+margin:0;
+font-size:32px;
+}
+
+nav{
+margin-top:10px;
+}
+
+nav a{
+text-decoration:none;
+margin-right:20px;
+color:#333;
+font-weight:500;
+font-size:14px;
+}
+
+main{
+max-width:1200px;
+margin:auto;
+padding:30px;
+}
+
+.searchbar{
+margin-bottom:30px;
+}
+
+.searchbar input{
+padding:10px;
+width:300px;
+font-size:14px;
+border:1px solid #ccc;
+}
+
+.headline{
+margin-bottom:40px;
+}
+
+.headline h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.headline p{
+font-size:16px;
+color:#444;
+}
+
+.grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:25px;
+}
+
+.card{
+border-top:3px solid #eee;
+padding-top:10px;
+}
+
+.card h3{
+margin:0 0 10px 0;
+font-size:18px;
+}
+
+.card p{
+font-size:14px;
+color:#555;
+}
+
+footer{
+border-top:1px solid #ddd;
+margin-top:40px;
+padding:20px;
+color:#777;
+font-size:13px;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -24,25 +118,29 @@
 
 <main>
 
+<div class="searchbar">
+<input type="text" id="search" placeholder="Search articles..." onkeyup="searchArticles()">
+</div>
+
 <section class="headline">
 
-<h2>City Expands Recreational Climbing Areas</h2>
+<h2 id="mainHeadline">City Expands Recreational Climbing Areas</h2>
 
-<p>
-Local officials announced plans to expand several climbing zones in the northern forest following increased community interest.
+<p id="mainText">
+Local officials announced plans to expand climbing zones in the northern forest following increased community interest.
 </p>
 
-<a href="#">Read More</a>
+<a href="#">Read Full Story</a>
 
 </section>
 
-<section class="grid">
+<section class="grid" id="articles-grid">
 
 <div class="card">
 
-<h3>Community Event Planned for Local Climbers</h3>
+<h3>Community Climber Meet-up Scheduled</h3>
 
-<p>A gathering for climbing enthusiasts is scheduled this weekend.</p>
+<p>Local climbing enthusiasts plan a weekend gathering.</p>
 
 <a href="#">Read</a>
 
@@ -52,7 +150,7 @@ Local officials announced plans to expand several climbing zones in the northern
 
 <h3>Forest Trail Maintenance Begins</h3>
 
-<p>Maintenance crews will repair several structures along the main trail.</p>
+<p>Maintenance crews repair climbing structures along the main trail.</p>
 
 <a href="#">Read</a>
 
@@ -60,9 +158,9 @@ Local officials announced plans to expand several climbing zones in the northern
 
 <div class="card">
 
-<h3>Digital Archive Available</h3>
+<h3>Digital Archive Now Available</h3>
 
-<p>Probosciss News has begun digitizing past articles for public access.</p>
+<p>Probosciss News has begun digitizing historical records.</p>
 
 <a href="archive.html">Browse</a>
 
@@ -78,6 +176,51 @@ Local officials announced plans to expand several climbing zones in the northern
 <p>About | Contact | Privacy</p>
 
 </footer>
+
+<script>
+
+/* SEARCH SYSTEM */
+
+function searchArticles(){
+
+var input=document.getElementById("search").value.toLowerCase();
+
+var cards=document.getElementById("articles-grid").getElementsByClassName("card");
+
+for(var i=0;i<cards.length;i++){
+
+var title=cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+
+if(title.includes(input)){
+
+cards[i].style.display="block";
+
+}else{
+
+cards[i].style.display="none";
+
+}
+
+}
+
+}
+
+
+setTimeout(function(){
+
+var headline=document.getElementById("mainHeadline");
+
+var text=document.getElementById("mainText");
+
+headline.innerText="City Officials Close Forest Climbing Area";
+
+text.innerText="Authorities temporarily restricted access to several climbing zones following reports of unusual disturbances.";
+
+},60000);
+
+</script>
+
+<!-- archive system pending -->
 
 </body>
 
