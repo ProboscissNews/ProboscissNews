@@ -6,15 +6,14 @@ color:#222;
 }
 
 header{
-background:#1a1a1a;
-color:white;
-padding:18px 30px;
+background:#ffffff;
+border-bottom:1px solid #ddd;
+padding:20px 40px;
 }
 
 header h1{
 margin:0;
-font-size:28px;
-letter-spacing:1px;
+font-size:30px;
 }
 
 nav{
@@ -22,9 +21,9 @@ margin-top:10px;
 }
 
 nav a{
-color:white;
 text-decoration:none;
 margin-right:20px;
+color:#333;
 font-size:14px;
 }
 
@@ -35,39 +34,34 @@ padding:30px;
 }
 
 .headline{
-border-bottom:1px solid #ddd;
-padding-bottom:20px;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .headline h2{
-font-size:28px;
+font-size:30px;
+margin-bottom:10px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:24px;
+grid-template-columns:2fr 1fr 1fr;
+gap:25px;
 }
 
 .card{
-border-top:3px solid #1a1a1a;
+border-top:2px solid #eee;
 padding-top:10px;
 }
 
 .card h3{
+margin:0 0 10px 0;
 font-size:18px;
 }
 
-.card p{
-font-size:14px;
-color:#444;
-}
-
 footer{
-margin-top:40px;
 border-top:1px solid #ddd;
+margin-top:40px;
 padding:20px;
-font-size:13px;
 color:#777;
+font-size:13px;
 }
