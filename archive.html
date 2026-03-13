@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Archive Access</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Probosciss News Archive</h1>
+<p>This archive contains restricted historical reports.</p>
+
+<input type="password" id="password" placeholder="Enter Archive Password">
+<button onclick="checkPassword()">Enter</button>
+
+<p id="message"></p>
+
+<script>
+
+function checkPassword() {
+
+var password = document.getElementById("password").value;
+
+if(password === "1987"){
+
+window.location.href = "restricted.html";
+
+}else{
+
+document.getElementById("message").innerText = "Access Denied";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
