@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>Archive Access</title>
-<link rel="stylesheet" href="style.css">
+<title>Probosciss News Archive</title>
+<style>
+body{
+  font-family:'Verdana','Arial',sans-serif;
+  margin:0;
+  background:#ffffe0;
+  color:#222;
+  text-align:center;
+  padding:50px;
+}
+input{
+  padding:10px;
+  font-size:16px;
+  border:2px solid #003366;
+  border-radius:5px;
+  width:250px;
+}
+button{
+  padding:10px 20px;
+  font-size:16px;
+  border:2px solid #003366;
+  border-radius:5px;
+  background:#ffcc00;
+  cursor:pointer;
+}
+h1{
+  color:#003366;
+  text-shadow:1px 1px 2px #000;
+}
+</style>
 </head>
-
 <body>
 
 <h1>Probosciss News Archive</h1>
-<p>This archive contains restricted historical reports.</p>
-
-<input type="password" id="password" placeholder="Enter Archive Password">
+<p>Enter access code to view restricted reports:</p>
+<input type="password" id="archivePass" placeholder="Enter password">
 <button onclick="checkPassword()">Enter</button>
-
-<p id="message"></p>
+<p id="msg"></p>
 
 <script>
-
-function checkPassword() {
-
-var password = document.getElementById("password").value;
-
-if(password === "1987"){
-
-window.location.href = "restricted.html";
-
-}else{
-
-document.getElementById("message").innerText = "Access Denied";
-
+function checkPassword(){
+  var pass = document.getElementById('archivePass').value;
+  if(pass === 'WOW' || pass==='DAVE' || pass==='V2'){
+    window.location.href = 'archive-restricted.html';
+  } else {
+    document.body.innerHTML = "<div style='background:black;color:white;font-size:40px;height:100vh;display:flex;justify-content:center;align-items:center;'>You went too far...</div>";
+  }
 }
-
-}
-
 </script>
 
 </body>
